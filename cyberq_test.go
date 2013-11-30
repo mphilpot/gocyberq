@@ -20,12 +20,12 @@ var _ = Describe("Cyberq", func() {
 			var xmlFile *os.File
 			var err error
 
-			if r.URL.Path == "/cyberq_status.xml" {
-				xmlFile, err = os.Open("../docs/cyberq_status.xml")
-			} else if r.URL.Path == "/cyberq_all.xml" {
-				xmlFile, err = os.Open("../docs/cyberq_all.xml")
-			} else if r.URL.Path == "/cyberq_config.xml" {
-				xmlFile, err = os.Open("../docs/cyberq_config.xml")
+			if r.URL.Path == "/status.xml" {
+				xmlFile, err = os.Open("docs/cyberq_status.xml")
+			} else if r.URL.Path == "/all.xml" {
+				xmlFile, err = os.Open("docs/cyberq_all.xml")
+			} else if r.URL.Path == "/config.xml" {
+				xmlFile, err = os.Open("docs/cyberq_config.xml")
 			}
 			if err != nil {
 				fmt.Println("Error opening file:", err)
