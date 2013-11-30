@@ -92,7 +92,7 @@ type Control struct {
 }
 
 func Status(url string) (status Nutcstatus) {
-	resp, err := http.Get(url + "/cyberq_status.xml")
+	resp, err := http.Get(url + "/status.xml")
 	if err != nil {
 		fmt.Println("Error opening file:", err)
 		return
@@ -107,7 +107,7 @@ func Status(url string) (status Nutcstatus) {
 }
 
 func All(url string) (status Nutcallstatus) {
-	resp, err := http.Get(url + "/cyberq_all.xml")
+	resp, err := http.Get(url + "/all.xml")
 	if err != nil {
 		fmt.Println("Error opening file:", err)
 		return
@@ -122,7 +122,7 @@ func All(url string) (status Nutcallstatus) {
 }
 
 func Config(url string) (status Nutcallstatus) {
-	resp, err := http.Get(url + "/cyberq_config.xml")
+	resp, err := http.Get(url + "/config.xml")
 	if err != nil {
 		fmt.Println("Error opening file:", err)
 		return
