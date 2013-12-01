@@ -8,6 +8,10 @@ import (
 	"net/http"
 )
 
+type CyberQ struct {
+	URL string
+}
+
 type Nutcstatus struct {
 	OutputPercent string `xml:"OUTPUT_PERCENT"`
 	TimerCurrent  string `xml:"TIMER_CURR"`
@@ -91,8 +95,8 @@ type Control struct {
 	PropBand      string `xml:"PROPBAND"`
 }
 
-func Status(url string) (status Nutcstatus) {
-	resp, err := http.Get(url + "/status.xml")
+func (cq *CyberQ) Status() (status Nutcstatus) {
+	resp, err := http.Get(cq.URL + "/status.xml")
 	if err != nil {
 		fmt.Println("Error opening file:", err)
 		return
@@ -106,8 +110,8 @@ func Status(url string) (status Nutcstatus) {
 	return status
 }
 
-func All(url string) (status Nutcallstatus) {
-	resp, err := http.Get(url + "/all.xml")
+func (cq *CyberQ) All() (status Nutcallstatus) {
+	resp, err := http.Get(cq.URL + "/all.xml")
 	if err != nil {
 		fmt.Println("Error opening file:", err)
 		return
@@ -121,8 +125,8 @@ func All(url string) (status Nutcallstatus) {
 	return status
 }
 
-func Config(url string) (status Nutcallstatus) {
-	resp, err := http.Get(url + "/config.xml")
+func (cq *CyberQ) Config() (status Nutcallstatus) {
+	resp, err := http.Get(cq.URL + "/config.xml")
 	if err != nil {
 		fmt.Println("Error opening file:", err)
 		return
