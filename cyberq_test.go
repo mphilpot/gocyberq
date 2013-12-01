@@ -13,6 +13,7 @@ import (
 var _ = Describe("Cyberq", func() {
 	var (
 		server *httptest.Server
+		cyberq *CyberQ
 	)
 
 	BeforeEach(func() {
@@ -38,6 +39,7 @@ var _ = Describe("Cyberq", func() {
 		}
 
 		server = httptest.NewServer(http.HandlerFunc(handler))
+		cyberq = &CyberQ{URL: server.URL}
 	})
 
 	AfterEach(func() {
@@ -62,7 +64,7 @@ var _ = Describe("Cyberq", func() {
 			CookPropBand:  "500",
 			CookRamp:      "0",
 		}
-		Expect(Status(server.URL)).To(Equal(expectedValue))
+		Expect(cyberq.Status()).To(Equal(expectedValue))
 	})
 
 	It("should return a all object", func() {
@@ -99,7 +101,7 @@ var _ = Describe("Cyberq", func() {
 			CookPropBand:  "500",
 			CookRamp:      "0",
 		}
-		Expect(All(server.URL)).To(Equal(expectedValue))
+		Expect(cyberq.All()).To(Equal(expectedValue))
 	})
 
 	It("should return a config object", func() {
@@ -155,7 +157,7 @@ var _ = Describe("Cyberq", func() {
 				PropBand:      "500",
 			},
 		}
-		actualValue := Config(server.URL)
+		actualValue := cyberq.Config()
 		Expect(actualValue.Cook).To(Equal(expectedValue.Cook))
 		Expect(actualValue.Food1).To(Equal(expectedValue.Food1))
 		Expect(actualValue.Food2).To(Equal(expectedValue.Food2))
