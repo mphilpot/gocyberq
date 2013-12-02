@@ -1,4 +1,4 @@
-package gocyberq
+package server_test
 
 import (
 	. "github.com/onsi/ginkgo"
@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-func TestSrc(t *testing.T) {
+func TestServer(t *testing.T) {
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "GoCyberq Suite")
+	RunSpecs(t, "Server Suite")
 }
