@@ -1,9 +1,10 @@
-package gocyberq
+package gocyberq_test
 
 import (
 	"fmt"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
+	. "github.com/mphilpot/gocyberq"
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
