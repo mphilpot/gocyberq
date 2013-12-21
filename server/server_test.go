@@ -8,21 +8,22 @@ import (
 	"encoding/json"
 	"os"
 	"github.com/mphilpot/gocyberq"
+	"path/filepath"
 )
 
 var _ = Describe("GoCyberQ Server", func() {
-	var file *os.File
+	var dirName string
 
 	BeforeEach(func() {
 		var err error
-		file, err = ioutil.TempFile("", "")
+		dirName, err = ioutil.TempDir("", "")
 		if err != nil {
-			Fail("Couldn't create temp file")
+			Fail("Couldn't create temp dirName")
 		}
 	})
 
 	AfterEach(func() {
-		os.Remove(file.Name())
+		os.Remove(dirName)
 	})
 
 	It("Load configuration", func () {
@@ -37,9 +38,9 @@ var _ = Describe("GoCyberQ Server", func() {
 
 		if err != nil { Fail("Couldn't marshal json") }
 
-		ioutil.WriteFile(file.Name(), b, 0777)
+		ioutil.WriteFile(filepath.Join(dirName, ConfigName), b, 0777)
 
-		server, err := LoadConfig(file.Name())
+		server, err := LoadConfig(dirName)
 
 		Expect(server).To(Equal(expectedConfig))
 
