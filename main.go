@@ -20,7 +20,7 @@ func main() {
 
 	fmt.Println(argsWithProg)
 	fmt.Println(argsWithoutProg)
-	// fmt.Println(arg)
+	fmt.Println(arg1)
 
 	cyberq := &CyberQ{URL: arg1}
 

@@ -106,7 +106,7 @@ func (cq *CyberQ) Status() (status Nutcstatus) {
 
 	xml.Unmarshal(b, &status)
 
-	// fmt.Println(status)
+	// fmt.Printf("%s\n", string(b))
 	return status
 }
 
@@ -121,7 +121,7 @@ func (cq *CyberQ) All() (status Nutcallstatus) {
 
 	xml.Unmarshal(b, &status)
 
-	// fmt.Println(status)
+	// fmt.Printf("%s\n", string(b))
 	return status
 }
 
@@ -136,6 +136,6 @@ func (cq *CyberQ) Config() (status Nutcallstatus) {
 
 	xml.Unmarshal(b, &status)
 
-	// fmt.Println(status)
+	fmt.Printf("%s\n", string(b))
 	return status
 }
