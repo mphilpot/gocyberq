@@ -24,10 +24,10 @@ class CyberQ {
 					});
 				})
 				// Log for debugging request reponses.
-				// .then((result) => {
-				// 	console.log(Util.inspect(result, {depth: null, colors: true}));
-				// 	return result;
-				// })
+				.then((result) => {
+					console.log(Util.inspect(result, {depth: null, colors: true}));
+					return result;
+				})
 				.then((result) => {
 					return new CyberQStatus(result);
 				});
