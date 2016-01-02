@@ -1,0 +1,26 @@
+{
+  "name": "gocyberq",
+  "version": "0.0.1",
+  "description": "A service to grab/graph cyberq information.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mphilpot/gocyberq.git"
+  },
+  "author": "mphilpot@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mphilpot/gocyberq/issues"
+  },
+  "homepage": "https://github.com/mphilpot/gocyberq#readme",
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "nconf": "^0.8.2",
+    "superagent": "^1.6.1",
+    "superagent-promise": "^1.1.0",
+    "xml2js": "^0.4.15"
+  }
+}
