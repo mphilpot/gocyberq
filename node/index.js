@@ -1,7 +1,6 @@
 var CyberQ = require('./cyberq');
 var Express = require('express');
-var FS = require('fs');
-var Util = require('util');
+var Path = require('path');
 var nconf = require('nconf');
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -50,10 +49,11 @@ console.log('server: ' + JSON.stringify(nconf.get('server')));
 var app = Express();
 
 var cyberqInstance = new CyberQ(nconf.get());
-app.get('/', (req, res) => {
+
+app.get('/api', (req, res) => {
 	cyberqInstance.current()
 			.then((result) => {
-				res.send(`hello world<br><pre>${JSON.stringify(result)}</pre>`);
+				res.send(JSON.stringify(result));
 			})
 			.catch((err) => {
 				res.send('error loading resource');
@@ -61,6 +61,9 @@ app.get('/', (req, res) => {
 				return Promise.reject(err);
 			})
 });
+
+app.use('/', Express.static(Path.join(__dirname, '..', 'client')))
+
 
 var server = app.listen(nconf.get('server:port'), () => {
   var host = server.address().address;

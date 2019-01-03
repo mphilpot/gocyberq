@@ -3,7 +3,7 @@
 var Http = require('http');
 var Url = require('url');
 var FS = require('fs');
-var Path = require('path')
+var Path = require('path');
 var CyberQ = require('../cyberq');
 var Util = require('util');
 
