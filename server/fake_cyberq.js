@@ -2,7 +2,6 @@ const Http = require('http');
 const Url = require('url');
 const FS = require('fs');
 const Path = require('path')
-const Util = require('util');
 
 const PORT = 10001;
 const server = Http.createServer((request, response) => {
