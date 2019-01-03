@@ -30,8 +30,8 @@ nconf.defaults({
 });
 
 // Print settings
-console.log('cyberq: ' + nconf.get('cyberq'));
-console.log('server: ' + nconf.get('server'));
+console.log('cyberq: ' + JSON.stringify(nconf.get('cyberq')));
+console.log('server: ' + JSON.stringify(nconf.get('server')));
 
 //
 // TODO: Save the default configuration object to disk.

@@ -18,9 +18,9 @@
   "homepage": "https://github.com/mphilpot/gocyberq#readme",
   "dependencies": {
     "express": "^4.13.3",
-    "lodash": "^3.10.1",
+    "lodash": "^4.17.11",
     "nconf": "^0.8.2",
-    "superagent": "^1.6.1",
+    "superagent": "^4.1.0",
     "superagent-promise": "^1.1.0",
     "xml2js": "^0.4.15"
   }
